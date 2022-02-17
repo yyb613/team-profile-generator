@@ -6,6 +6,7 @@ function generate(arr) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=e, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/b0fe3d2aca.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
         integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css">
@@ -40,7 +41,7 @@ function generateMgrs(arr) {
             <div class="card card-outer" style="width: 18rem;"> <!-- Card -->
                 <div class="card-body card-top"> <!-- Card Top -->
                     <h3>${arr[i].name}</h3>
-                    <h3>Manager</h3>
+                    <h3><i class="fa-solid fa-mug-hot"></i> Manager</h3>
                 </div>
                 <div class="card-body card-bottom"> <!-- Card Bottom -->
                     <div class="card"> <!-- Card Items -->
@@ -67,7 +68,7 @@ function generateEng(arr) {
             <div class="card card-outer" style="width: 18rem;"> <!-- Card -->
                 <div class="card-body card-top"> <!-- Card Top -->
                     <h3>${arr[i].name}</h3>
-                    <h3>Engineer</h3>
+                    <h3><i class="fa-solid fa-glasses"></i> Engineer</h3>
                 </div>
                 <div class="card-body card-bottom"> <!-- Card Bottom -->
                     <div class="card"> <!-- Card Items -->
@@ -94,7 +95,7 @@ function generateInt(arr) {
             <div class="card card-outer" style="width: 18rem;"> <!-- Card -->
                 <div class="card-body card-top"> <!-- Card Top -->
                     <h3>${arr[i].name}</h3>
-                    <h3>Intern</h3>
+                    <h3><i class="fa-solid fa-user-graduate"></i> Intern</h3>
                 </div>
                 <div class="card-body card-bottom"> <!-- Card Bottom -->
                     <div class="card"> <!-- Card Items -->
