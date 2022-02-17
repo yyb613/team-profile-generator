@@ -18,40 +18,99 @@ function generate(arr) {
             <h1 class="display-4">My Team</h1>
         </div>
     </div>
+
+    <div class="container"> <!-- Container -->
+        <div class="row"> <!-- Row -->
     
     ${generateMgrs(arr)}
     ${generateEng(arr)}
     ${generateInt(arr)}
-    
+   
+        </div> <!-- End row -->
+    </div> <!-- End container -->
 </body>
 </html>`
 }
 
 function generateMgrs(arr) {
     let managerCardTemplate = ``
-    for(i=0; i<arr.length; i++) {
+    for(i = 0; i < arr.length; i++) {
         if(arr[i].getRole() === "Manager"){
             managerCardTemplate += `
-    <div class="card card-shadow" style="width: 18rem;"> <!-- Card -->
-        <div class="card-body card-top"> <!-- Card Top-->
-            <h3>Jared</h3>
-            <h3>Manager</h3>
-        </div>
-        <div class="card-body card-bottom"> <!-- Card Bottom-->
-            <div class="card"> <!-- Card Items-->
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">ID</li>
-                    <li class="list-group-item">Email</li>
-                    <li class="list-group-item">A third item</li>
-                </ul>
+            <div class="card card-outer" style="width: 18rem;"> <!-- Card -->
+                <div class="card-body card-top"> <!-- Card Top -->
+                    <h3>${arr[i].name}</h3>
+                    <h3>Manager</h3>
+                </div>
+                <div class="card-body card-bottom"> <!-- Card Bottom -->
+                    <div class="card"> <!-- Card Items -->
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">ID: ${arr[i].id}</li>
+                            <li class="list-group-item">Email: <a href="mailto:${arr[i].email}">${arr[i].email}</a></li>
+                                <li class="list-group-item">Office number: ${arr[i].officeNumber}</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
     `
         }
     }
 
-    return managerCardTemplate
+    return managerCardTemplate;
 }
 
-module.exports = generate
+function generateEng(arr) {
+    let engineerCardTemplate = ``
+    for (i = 0; i < arr.length; i++) {
+        if (arr[i].getRole() === "Engineer") {
+            engineerCardTemplate += `
+            <div class="card card-outer" style="width: 18rem;"> <!-- Card -->
+                <div class="card-body card-top"> <!-- Card Top -->
+                    <h3>${arr[i].name}</h3>
+                    <h3>Engineer</h3>
+                </div>
+                <div class="card-body card-bottom"> <!-- Card Bottom -->
+                    <div class="card"> <!-- Card Items -->
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">ID: ${arr[i].id}</li>
+                            <li class="list-group-item">Email: <a href="mailto:${arr[i].email}">${arr[i].email}</a></li>
+                            <li class="list-group-item">GitHub: <a href="https://github.com/${arr[i].github}" target="_blank">${arr[i].github}</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    `
+        }
+    }
+
+    return engineerCardTemplate;
+}
+
+function generateInt(arr) {
+    let internCardTemplate = ``
+    for (i = 0; i < arr.length; i++) {
+        if (arr[i].getRole() === "Intern") {
+            internCardTemplate += `
+            <div class="card card-outer" style="width: 18rem;"> <!-- Card -->
+                <div class="card-body card-top"> <!-- Card Top -->
+                    <h3>${arr[i].name}</h3>
+                    <h3>Intern</h3>
+                </div>
+                <div class="card-body card-bottom"> <!-- Card Bottom -->
+                    <div class="card"> <!-- Card Items -->
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">ID: ${arr[i].id}</li>
+                            <li class="list-group-item">Email: <a href="mailto:${arr[i].email}">${arr[i].email}</a></li>
+                                <li class="list-group-item">School: ${arr[i].school}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    `
+        }
+    }
+
+    return internCardTemplate;
+}
+
+module.exports = generate;

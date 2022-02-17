@@ -5,6 +5,7 @@ const Manager = require('./lib/Manager');   // Manager class
 const Engineer = require('./lib/Engineer'); // Engineer class
 const Intern = require('./lib/Intern');     // Intern class
 const employeeArr = [];                     // Employee array
+const markdown = require('./src/generateTeamHTML') // Generate Markdown
 
 // Manager Questions
 const managerQuestions = [
@@ -119,8 +120,8 @@ function mainMenu() {
             } else if (answer.memberType === 'Intern') { // if choose Intern
                 askIntern();
             } else {
-                console.log(employeeArr);
-                // writeToFile(); // 
+                const markedDown = markdown(employeeArr);
+                writeToFile('./dist/index.html', markedDown); // Write file function call
             }
         })
 }
