@@ -1,10 +1,11 @@
 // Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
-const jest = require('jest');
+const Manager = require('./lib/Manager');
+const employeeArr = [];
 
-// Create an array of questions for user input
-const questions = [
+// Create array of questions for user input
+const managerQuestions = [
     /*
     What is your engineer\'s name?
     What is your engineer\'s id?
@@ -16,12 +17,6 @@ const questions = [
     What is your intern\'s email?
     What is your intern\'s school?
     */
-    {
-        type: 'list',
-        message: 'Which type of team member would you like to add?',
-        choices: ['Team Manager', 'Engineer', 'Intern', 'I don\'t want to add any more team members'],
-        name: 'type'
-    },
     {
         type: 'input',
         message: 'What is the team manager\'s name?',
@@ -44,6 +39,13 @@ const questions = [
     },
 ];
 
+const menuQuestion = {
+    type: 'list',
+    message: 'Which type of team member would you like to add?',
+    choices: ['Engineer', 'Intern', "I don't want to add any more team members"],
+    name: 'member-type'
+}
+
 // Function to write index.html
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, err => {
@@ -54,12 +56,23 @@ function writeToFile(fileName, data) {
 // Function to initialize app
 function init() {
     inquirer
-        .prompt(questions)
+        .prompt(managerQuestions)
         .then((answers) => {
-            // writeToFile('./dist/index.html', );
+            //keep track of all employees
+            console.log(answers)
+            // const newMgr = new Manager(answers.)
+            // employeeArr.push(newMgr)
+            mainMenu()
         })
 };
 
+function mainMenu() {
+    inquirer
+        .prompt(menuQuestion)
+        .then(menuAnswer => {
+            // if()
+        })
+}
+
 // Function call to initialize app
 init();
-
