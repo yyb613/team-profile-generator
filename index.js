@@ -95,6 +95,7 @@ function writeToFile(fileName, data) {
 
 // Function to initialize app
 function init() {
+    console.log("Please build your team 👥"); // intro message
     inquirer
         .prompt(managerQuestions) // ask Manager questions
         .then((answers) => {                             //--Variables--//
@@ -118,7 +119,8 @@ function mainMenu() {
             } else if (answer.memberType === 'Intern') { // if choose Intern
                 askIntern();
             } else {
-                writeToFile(); // 
+                console.log(employeeArr);
+                // writeToFile(); // 
             }
         })
 }
@@ -131,7 +133,7 @@ function askEngineer() {
             const engineerName = answers.engineerName;   // Engineer Name
             const engineerId = answers.engineerId;       // Engineer ID
             const engineerEmail = answers.engineerEmail; // Engineer Email
-            const engineerGit = answers.engineerOffice;  // Engineer GitHub
+            const engineerGit = answers.engineerGit;  // Engineer GitHub
             const newEngineer = new Engineer(engineerName, engineerId, engineerEmail, engineerGit); // create new Engineer
             employeeArr.push(newEngineer) // push Engineer to Employee Array
             mainMenu(); // prompt Main Menu
@@ -143,10 +145,10 @@ function askIntern() {
     inquirer
         .prompt(internQuestions) // ask Intern questions
         .then((answers) => {                             //--Variables--//
-            const internName = answers.engineerName;     // Intern Name
-            const internId = answers.engineerId;         // Intern ID
-            const internEmail = answers.engineerEmail;   // Intern Email
-            const internSchool = answers.engineerOffice; // Intern GitHub
+            const internName = answers.internName;     // Intern Name
+            const internId = answers.internId;         // Intern ID
+            const internEmail = answers.internEmail;   // Intern Email
+            const internSchool = answers.internSchool; // Intern School
             const newIntern = new Intern(internName, internId, internEmail, internSchool); // create new Intern
             employeeArr.push(newIntern) // push Intern to Employee Array
             mainMenu(); // prompt Main Menu
