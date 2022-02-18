@@ -1,3 +1,4 @@
+// Generate HTML
 function generate(arr) {
     return `<!DOCTYPE html>
 <html lang="en">
@@ -33,6 +34,7 @@ function generate(arr) {
 </html>`
 }
 
+// Generate Managers
 function generateMgrs(arr) {
     let managerCardTemplate = ``
     for(i = 0; i < arr.length; i++) {
@@ -60,6 +62,7 @@ function generateMgrs(arr) {
     return managerCardTemplate;
 }
 
+// Generate Engineers
 function generateEng(arr) {
     let engineerCardTemplate = ``
     for (i = 0; i < arr.length; i++) {
@@ -87,6 +90,7 @@ function generateEng(arr) {
     return engineerCardTemplate;
 }
 
+// Generate Interns
 function generateInt(arr) {
     let internCardTemplate = ``
     for (i = 0; i < arr.length; i++) {
@@ -114,4 +118,5 @@ function generateInt(arr) {
     return internCardTemplate;
 }
 
+// Export
 module.exports = generate;
